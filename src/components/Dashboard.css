@@ -1,0 +1,16 @@
+.carClass {
+    height: 150px;
+    align-items: center;
+    display: grid;
+}
+
+.chartCard {
+    height: 500px;
+    display: grid;
+
+}
+.charts {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
