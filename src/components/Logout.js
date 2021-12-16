@@ -1,10 +1,10 @@
+import React from 'react'
 import firebase from 'firebase'
-import { useHistory } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 const Logout = () => {
-    const history = useHistory()
     firebase.auth().signOut()
-    return history.push('/login')
+    return <Redirect to="/login" />
 }
 
 export default Logout

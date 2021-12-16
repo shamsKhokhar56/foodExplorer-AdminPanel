@@ -22,6 +22,7 @@ import firebase from 'firebase';
 import { Profile } from './components/Profile';
 import Logout from './components/Logout';
 import RestaurantsScreen from './components/RestaurantsScreen';
+import EditRestaurant from './components/EditRestaurant';
 
 const App = () => {
 
@@ -164,10 +165,7 @@ const App = () => {
             {!user ?
                 <>
                     <Route path="/login" exact component={Login} />
-                    <Route path='/dashboard'>
-                        <Redirect to='/login' />
-                    </Route>
-                    <Route path='/profile'>
+                    <Route path='*'>
                         <Redirect to='/login' />
                     </Route>
                 </>
@@ -188,7 +186,6 @@ const App = () => {
                             <Route path="/profile" component={Profile} />
                             <Route path="/logout" component={Logout} />
                             <Route path="/restaurants" component={RestaurantsScreen} />
-
                         </div>
                     </div>
                 </>

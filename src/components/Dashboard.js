@@ -19,10 +19,15 @@ export const Dashboard = () => {
     const [RawalpindiCount, setRawalpindiCount] = useState()
     const [restCount, setRestCount] = useState()
     const [userCount, setUserCount] = useState()
+    
+    const [scale, setScale] = useState(14);
 
-    useEffect(() => {
-        getData()
+    useEffect(async() => {
+        await getData()
     }, []);
+    useEffect(() => {
+        document.documentElement.style.fontSize = scale + 'px';
+    }, [scale])
 
     const getData = async () => {
         await firebase.firestore().collection('RestaurantFaisalabad').get()
@@ -132,21 +137,21 @@ export const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <div className="col-12 xl:col-6">
-                <div className="card chartCard">
+            <div className="col-12 lg:col-6 xl:col-6">
+                <div className="card">
                     <h5>Restaurants Data</h5>
                     {
                         loading ?
                             <Loading />
                             :
-                            <Chart className="charts" type="bar" data={basicData} options={basicOptions} />
+                            <Chart type="bar" data={basicData} options={basicOptions} />
 
                     }
                 </div>
             </div>
 
-            <div className="col-12 xl:col-6">
-                <div className="card chartCard">
+            <div className="col-12 lg:col-6 xl:col-6">
+                <div className="card">
                     <h5>Users</h5>
                     {loading ?
                         <Loading />
